@@ -2,7 +2,7 @@ import React from 'react';
 import './index.scss';
 
 export interface PersonProps {
-  person: {
+  person?: {
     name: string;
     age: number;
     hairColor?: string;
@@ -11,8 +11,9 @@ export interface PersonProps {
 }
 
 const LargePersonList: React.FC<PersonProps> = ({ person }) => {
-  const { name, age, hairColor, hobbies } = person;
-  return (
+  const { name, age, hairColor, hobbies } = person || {};
+
+  return person ? (
     <div className="a-large-persone">
       <div className="a-large-persone__details">
         <p className="a-large-persone--name">Name: {name}</p>
@@ -28,6 +29,8 @@ const LargePersonList: React.FC<PersonProps> = ({ person }) => {
         </ul>
       </h3>
     </div>
+  ) : (
+    <p>Loading...</p>
   );
 };
 

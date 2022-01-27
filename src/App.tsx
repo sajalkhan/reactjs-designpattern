@@ -11,6 +11,7 @@ import SmallPersonList from 'components/atom/small-person-list';
 import LargePersonList from 'components/atom/large-person-list';
 import SmallProduceList from 'components/atom/small-product-list';
 import LargeProduceList from 'components/atom/large-product-list';
+import UserLoader from 'components/molecules/UserLoader';
 import { people, products } from 'data';
 
 const App = () => {
@@ -33,6 +34,15 @@ const App = () => {
 
       <SplitScreen
         rightComponent={<NumberList items={products} resourceName="product" itemComponent={LargeProduceList} />}
+      />
+
+      <h3 style={{ textAlign: 'center' }}>Example 4</h3>
+      <SplitScreen
+        rightComponent={
+          <UserLoader>
+            <LargePersonList />
+          </UserLoader>
+        }
       />
     </div>
   );
