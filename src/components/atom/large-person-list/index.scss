@@ -1,0 +1,23 @@
+@import '../../../styles/index.scss';
+
+.a-large-persone {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-base-mantis;
+  padding: 20px;
+  margin: 10px 0 10px 0;
+  border-radius: 5px;
+
+  &__details {
+    justify-content: flex-start;
+  }
+
+  &__hobbies {
+    justify-content: flex-start;
+    padding: 10px;
+
+    > ul {
+      margin-left: 25px;
+    }
+  }
+}
