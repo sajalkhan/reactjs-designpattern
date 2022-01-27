@@ -1,0 +1,12 @@
+@import '../../../styles/index.scss';
+
+.item-number {
+  height: 30px;
+  width: 30px;
+  background-color: $color-base-pitch-black;
+  color: $color-white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
