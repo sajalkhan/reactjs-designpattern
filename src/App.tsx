@@ -30,6 +30,10 @@ const App = () => {
         leftComponent={<NumberList items={products} resourceName="product" itemComponent={SmallProduceList} />}
         rightComponent={<NumberList items={products} resourceName="product" itemComponent={LargeProduceList} />}
       />
+
+      <SplitScreen
+        rightComponent={<NumberList items={products} resourceName="product" itemComponent={LargeProduceList} />}
+      />
     </div>
   );
 };
