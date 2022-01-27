@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    restart: on-failure
+    build:  
+      context: . # context means from where we get data and here . means current folder
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes: # resolve unnecessary rebuilds using volumes(if we change anything in our code) //TODO:--> https://coderedirect.com/questions/256484/docker-compose-volumes-without-colon
+      - /app/node_modules # it's say do not map node_modules folder
+      - .:/app 
+      #👆. means current folder outside the container
+      # /app👆 means app folder inside the container (mapping)
+  tests: # 🌟 write another services for test unit test cases
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["yarn","test"]

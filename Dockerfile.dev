@@ -1,0 +1,15 @@
+# 👇 Use an existing docker image as a base
+FROM node:14-alpine3.14
+WORKDIR /app
+COPY package.json . 
+# 👇 Download and install a dependency 
+RUN yarn install
+
+COPY . .
+#1st.👆 current folder outside the container
+#2nd. 👆 current folder inside the container
+EXPOSE 3000
+
+# Tell the image what to do when it starts
+# as a container
+CMD  ["yarn", "start"]
