@@ -16,6 +16,7 @@ import LargePersonList from 'components/atom/large-person-list';
 import SmallProduceList from 'components/atom/small-product-list';
 import LargeProduceList from 'components/atom/large-product-list';
 import HocComponent from 'components/molecules/HOC';
+import UserLoader from 'components/molecules/UserLoader';
 import { people, products } from 'data';
 
 const PersonListWrapper = HocComponent(LargePersonList);
@@ -43,6 +44,15 @@ const App = () => {
       />
 
       <h3 style={{ textAlign: 'center' }}>Example 4</h3>
+      <SplitScreen
+        rightComponent={
+          <UserLoader>
+            <LargePersonList />
+          </UserLoader>
+        }
+      />
+
+      <h3 style={{ textAlign: 'center' }}>Example 5</h3>
       <SplitScreen rightComponent={<PersonListWrapper people={people} />} />
     </div>
   );
