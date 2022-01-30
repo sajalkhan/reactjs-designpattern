@@ -1,6 +1,10 @@
-//TODO: --our components shouldn't know where they're being displayed
-//Link: https://github.com/LinkedInLearning/react-design-patterns-2895130/tree/01_02b
-
+/*
+  TODO:
+ * Higher order components
+  --- A components that return another component insted of jsx
+ * HOCs are used for.. 
+  --- Sharing complex behavior between multiple components (much like with container components)
+ */
 import React from 'react';
 import Left from 'components/atom/left';
 import Right from 'components/atom/right';
@@ -11,7 +15,10 @@ import SmallPersonList from 'components/atom/small-person-list';
 import LargePersonList from 'components/atom/large-person-list';
 import SmallProduceList from 'components/atom/small-product-list';
 import LargeProduceList from 'components/atom/large-product-list';
+import HocComponent from 'components/molecules/HOC';
 import { people, products } from 'data';
+
+const PersonListWrapper = HocComponent(LargePersonList);
 
 const App = () => {
   return (
@@ -34,6 +41,9 @@ const App = () => {
       <SplitScreen
         rightComponent={<NumberList items={products} resourceName="product" itemComponent={LargeProduceList} />}
       />
+
+      <h3 style={{ textAlign: 'center' }}>Example 4</h3>
+      <SplitScreen rightComponent={<PersonListWrapper people={people} />} />
     </div>
   );
 };
