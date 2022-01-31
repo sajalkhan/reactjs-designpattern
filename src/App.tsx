@@ -1,8 +1,6 @@
 /*
   TODO:
- * Higher order components
-  --- A components that return another component insted of jsx
- * HOCs are used for.. 
+ * Custom Hooks used for.. 
   --- Sharing complex behavior between multiple components (much like with container components)
  */
 import React from 'react';

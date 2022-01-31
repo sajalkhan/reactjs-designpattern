@@ -1,20 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
+import { useGetUser } from './useGetUser';
 
 const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
 
 export const withEditableResource = (Component, resourcePath, resourceName) => {
   return props => {
-    const [originalData, setOriginalData] = useState({});
-    const [data, setData] = useState({});
-
-    useEffect(() => {
-      (async () => {
-        const response = await axios.get(resourcePath);
-        setOriginalData(response.data);
-        setData(response.data);
-      })();
-    }, []);
+    const { originalData, setOriginalData } = useGetUser(resourcePath);
+    const { data, setData } = useGetUser(resourcePath);
 
     const onChange = change => {
       setData({ ...data, ...change });
